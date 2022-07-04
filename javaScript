@@ -1,0 +1,35 @@
+
+let text = document.getElementById("text");
+let msg = document.getElementById("msg");
+let btn = document.getElementById("btn");
+let post = document.getElementById("post");
+
+btn.addEventListener("click", () => {
+  console.log("clicked");
+  formValid();
+});
+
+function formValid() {
+  if (text.value === "") {
+    msg.innerHTML = "Input Should not be empty";
+    console.log("error")
+  } else {
+    console.log("successs");
+    msg.innerHTML = "";  // this is will reset the msg console 
+    acceptData(); // this is the function whick will call to display the data taken fro input 
+  }
+}
+let data = {};  // empty sting to store data 
+let acceptData = () => { // function called 
+  data["text"] = text.value; // we can also simply use this as data = text.value 
+  console.log(data);
+  createPost();
+};
+
+
+// now we have to show that data onto scree
+
+let createPost = ()=>
+{
+    post.innerText = data.text;  // data.text is accessing the text form string data
+}
